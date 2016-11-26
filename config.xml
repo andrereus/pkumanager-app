@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.andrereus.pkumanager"
+        version   = "1.0.2">
+
+    <name>PKU Manager</name>
+
+    <description>
+        PKU Manager - As easy as 123.
+    </description>
+
+    <author href="http://pkumanager.com" email="mail@pkumanager.com">
+        Andre Reus
+    </author>
+
+    <gap:platform name="android" />
+    <gap:platform name="winphone" />
+
+    <preference name="permissions" value="none"/>
+
+    <icon src="icon.png" />
+    <icon src="icons/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi"/>
+    <icon src="icons/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi"/>
+    <icon src="icons/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi"/>
+    <icon src="icons/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi"/>
+    <icon src="icons/windows.png"        gap:platform="winphone"/>
+    <icon src="icons/windows.png"        gap:platform="winphone"   gap:role="background"/>
+
+    <access origin="*"/>
+
+</widget>
