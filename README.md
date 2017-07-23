@@ -1,3 +1,3 @@
-# PKU Manager Website
+# PKU Manager App
 
-![PKU Manager Website](img/pkumanager-browser.png)
+![PKU Manager App](img/pkumanager-browser.png)
