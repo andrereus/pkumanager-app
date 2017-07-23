@@ -12,6 +12,40 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
 
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyB5sIDzR9607vh_rbcKm0mX0tClBVHMVzM",
+                authDomain: "pkumanager-89110.firebaseapp.com",
+                databaseURL: "https://pkumanager-89110.firebaseio.com",
+                projectId: "pkumanager-89110",
+                storageBucket: "pkumanager-89110.appspot.com",
+                messagingSenderId: "704909280763"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="js/login.js"></script>
+
+        <!-- Fullstory -->
+        <script>
+        window['_fs_debug'] = false;
+        window['_fs_host'] = 'fullstory.com';
+        window['_fs_org'] = '2FDJR';
+        window['_fs_namespace'] = 'FS';
+        (function(m,n,e,t,l,o,g,y){
+            if (e in m && m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'); return;}
+            g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+            o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+            y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+            g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){g(l,v)};
+            g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+            g.clearUserCookie=function(c,d,i){if(!c || document.cookie.match('fs_uid=[`;`]*`[`;`]*`[`;`]*`')){
+            d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+            ';path=/;expires='+new Date(0).toUTCString();i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}};
+        })(window,document,window['_fs_namespace'],'script','user');
+        </script>
+
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
@@ -22,21 +56,29 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header>
+        <header class="site">
             <div>
                 <h1 class="float-left" id="logo"><a href="index.html"><img src="img/logo.png" alt="PKU Manager"></a></h1>
-                <nav class="float-right">
-                    <a href="search.html"><span class="fa fa-search"></span></a>
-                    <a href="add.html"><span class="fa fa-plus"></span></a>
-                    <a href="view.html" class="active-link"><span class="fa fa-book"></span></a>
-                    <a href="menu.html"><span class="fa fa-bars"></span></a>
-                </nav>
+                <div id="login" class="float-right">
+                    <div id="storage">
+                        <span class="fa fa-database"></span> Local storage <span class="fa fa-caret-down"></span>
+                    </div>
+                    <div id="dropdown" class="hidden">
+                        <a href="index.html"><span class="fa fa-home"></span> Home</a>
+                        <a href="#" class="disabled" id="sign-in"><span class="fa fa-sign-in"></span> Sign in with Google</a>
+                        <a href="settings.html"><span class="fa fa-cog"></span> Settings</a>
+                        <a href="help.html"><span class="fa fa-question-circle"></span> Help</a>
+                        <a href="about.html"><span class="fa fa-info-circle"></span> About</a>
+                        <a href="old"><span class="fa fa-history"></span> Old version</a>
+                    </div>
+                </div>
             </div>
         </header>
 
         <section>
-            <p><a href="view.html">View</a> / Edit</p>
-            <form class="add-edit">
+            <h1>Edit</h1>
+            <div class="float-right"><input type="checkbox" id="calculate"><label class="label-inline" for="calculate">Lock values to calculate</label></div>
+            <form class="add-edit" autocomplete="off">
                 <label for="name">Name</label>
                 <input type="text" id="name">
                 <label for="weight">Weight in g</label>
@@ -49,13 +91,13 @@
                 <input type="number" id="energy">
                 <input type="button" value="Save" id="edit">
                 <input type="button" value="Delete" class="button-outline" id="delete">
-                <div class="float-right">
-                    <input type="checkbox" id="calculate">
-                    <label class="label-inline" for="calculate">Calculate with these values</label>
-                </div>
             </form>
         </section>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+
+        <script src="js/main.js"></script>
         <script src="js/edit.js"></script>
     </body>
 </html>

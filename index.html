@@ -10,7 +10,42 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
         <link rel="stylesheet" href="icons/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
         <link rel="stylesheet" href="css/main.css">
+
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyB5sIDzR9607vh_rbcKm0mX0tClBVHMVzM",
+                authDomain: "pkumanager-89110.firebaseapp.com",
+                databaseURL: "https://pkumanager-89110.firebaseio.com",
+                projectId: "pkumanager-89110",
+                storageBucket: "pkumanager-89110.appspot.com",
+                messagingSenderId: "704909280763"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="js/login.js"></script>
+
+        <!-- Fullstory -->
+        <script>
+        window['_fs_debug'] = false;
+        window['_fs_host'] = 'fullstory.com';
+        window['_fs_org'] = '2FDJR';
+        window['_fs_namespace'] = 'FS';
+        (function(m,n,e,t,l,o,g,y){
+            if (e in m && m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'); return;}
+            g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+            o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+            y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+            g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){g(l,v)};
+            g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+            g.clearUserCookie=function(c,d,i){if(!c || document.cookie.match('fs_uid=[`;`]*`[`;`]*`[`;`]*`')){
+            d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+            ';path=/;expires='+new Date(0).toUTCString();i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}};
+        })(window,document,window['_fs_namespace'],'script','user');
+        </script>
 
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,23 +60,56 @@
         <header>
             <div>
                 <h1 class="float-left" id="logo"><a href="index.html"><img src="img/logo.png" alt="PKU Manager"></a></h1>
-                <nav class="float-right">
-                    <a href="search.html"><span class="fa fa-search"></span></a>
-                    <a href="add.html"><span class="fa fa-plus"></span></a>
-                    <a href="view.html"><span class="fa fa-book"></span></a>
-                    <a href="menu.html"><span class="fa fa-bars"></span></a>
-                </nav>
+                <div id="login" class="float-right">
+                    <div id="storage">
+                        <span class="fa fa-database"></span> Local storage <span class="fa fa-caret-down"></span>
+                    </div>
+                    <div id="dropdown" class="hidden">
+                        <a href="index.html"><span class="fa fa-home"></span> Home</a>
+                        <a href="#" class="disabled" id="sign-in"><span class="fa fa-sign-in"></span> Sign in with Google</a>
+                        <a href="settings.html"><span class="fa fa-cog"></span> Settings</a>
+                        <a href="help.html"><span class="fa fa-question-circle"></span> Help</a>
+                        <a href="about.html"><span class="fa fa-info-circle"></span> About</a>
+                        <a href="old"><span class="fa fa-history"></span> Old version</a>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <section>
-            <h2>PKU Manager - As easy as 123.</h2>
-            <ol>
-                <li><a href="search.html"><span class="fa fa-search"></span> <span class="bold">Search</span></a> for food.</li>
-                <li>Calculate and <a href="add.html"><span class="fa fa-plus"></span> <span class="bold">Add</span></a> food to a list.</li>
-                <li><a href="view.html"><span class="fa fa-book"></span> <span class="bold">View</span></a> and edit food in the list.</li>
-            </ol>
-                <p>More features are added over time.</p>
+        <div id="search">
+            <section>
+                <form action="get" id="site_search" autocomplete="off">
+                    <label for="search_box" class="visuallyhidden">Search</label>
+                    <div class="float-right">
+                        <select id="language">
+                            <option value="english">English</option>
+                            <option value="german">German</option>
+                        </select>
+                        <input type="submit" value="Search">
+                    </div>
+                    <div class="width-wrapper">
+                        <input type="text" class="wide-input" id="search_box" autofocus>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <section class="clearfix" id="entry"></section>
+        <section id="view">
+            <p id="instruction-text">Search, calculate and add food in 8 seconds.</p>
+            <img src="img/searchcalcadd.gif" alt="Instruction" id="instruction">
         </section>
+        <section>
+            <p id="instruction-text">Learn how to use this app under <a href="help.html"><span class="fa fa-question-circle"></span> Help</a>.</p>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/vendor/lunr.min.js"></script>
+        <script src="js/vendor/jquery-ui.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/search.js"></script>
+        <script src="js/view.js"></script>
     </body>
 </html>

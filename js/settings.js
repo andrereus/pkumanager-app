@@ -27,7 +27,7 @@ function tolerance() {
 
     localStorage.setItem("tolerance", JSON.stringify(need));
     alert("Entries are saved.");
-    location.reload();
+    window.location.assign("index.html");
 }
 
 /* Estimate protein */
@@ -51,26 +51,25 @@ if (localStorage.getItem("tolerance") !== null) {
     energy.value = tol.kcaltol.toFixed(2).replace(/\.?0+$/, "");
 }
 
-/* Reset food list */
-var resetlist, conf;
-addListener(resetfood, "click", resetlist);
-
-function resetlist() {
-    conf = confirm("Please confirm to reset food list.");
-    if (conf === true) {
-        localStorage.removeItem("day");
-        location.reload();
-    }
-}
-
 /* Reset app */
 var resetapp;
 addListener(reset, "click", resetapp);
 
 function resetapp() {
-    conf = confirm("Please confirm to reset app.");
-    if (conf === true) {
-        localStorage.clear();
-        location.reload();
-    }
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            firebase.database().ref(user.uid).once("value").then(function(snapshot) {
+                conf = confirm("Please confirm to reset app.");
+                firebase.database().ref(user.uid).remove().then(function(error){
+                    window.location.assign("index.html");
+                });
+            });
+        } else {
+            conf = confirm("Please confirm to reset app.");
+            if (conf === true) {
+                localStorage.clear();
+                window.location.assign("index.html");
+            }
+        }
+    });
 }

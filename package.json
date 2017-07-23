@@ -1,0 +1,18 @@
+{
+  "name": "pkumanager",
+  "version": "1.0.0",
+  "description": "PKU Manager",
+  "scripts": {
+    "serve": "browser-sync start --server --files \"**/*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkumanager/pkumanager.git"
+  },
+  "author": "Andre Reus",
+  "bugs": "https://github.com/pkumanager/pkumanager/issues",
+  "homepage": "http://pkumanager.com",
+  "devDependencies": {
+    "browser-sync": "^2.18.12"
+  }
+}

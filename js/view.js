@@ -1,30 +1,45 @@
 /* Initialize */
-var today = document.getElementById("today");
+var entry = document.getElementById("entry");
+var view = document.getElementById("view");
+
+/* Food navigation */
+var nav = "<input type=\"text\" class=\"float-left\" id=\"datepicker\">" +
+    "<a class=\"button float-right\" href=\"add.html\">Add</a>";
+
+entry.innerHTML = nav;
+$("#datepicker").datepicker();
+$("#datepicker").datepicker("option", "dateFormat", "dd.mm.yy");
+$("#datepicker").datepicker("setDate", new Date());
 
 /* Food list */
-if (localStorage.getItem("day") !== null) {
-    var list = JSON.parse(localStorage.getItem("day"));
+function renderEntries(list) {
     var phe = 0;
     var prot = 0;
     var kcal = 0;
 
-    var table = "<thead><tr><th>" +
+    var table = "<table><thead><tr><th>" +
         "Description</th><th>" +
         "Phenyl&shy;alanine</th><th>" +
         "Protein</th><th>" +
         "Energy</th></tr></thead><tbody>";
 
-    for (var i = 0; i < list.length; i++) {
-        table += "<tr><td><a href=\"edit.html?" + list[i].id + "\" class=\"table-link\">" +
-            list[i].wg.toFixed(2).replace(/\.?0+$/, "") + "&nbsp;g " +
-            list[i].desc + "</a></td><td class=\"nowrap\">" +
-            list[i].phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td><td class=\"nowrap\">" +
-            list[i].prot.toFixed(2).replace(/\.?0+$/, "") + " g</td><td>" +
-            list[i].kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
+    var pickeddate = $("#datepicker").datepicker("getDate");
 
-        phe += list[i].phe;
-        prot += list[i].prot;
-        kcal += list[i].kcal;
+    for (var i = 0; i < list.length; i++) {
+        var fooddate = new Date(list[i].date);
+
+        if (fooddate.getDate() == pickeddate.getDate() && fooddate.getMonth() == pickeddate.getMonth() && fooddate.getFullYear() == pickeddate.getFullYear()) {
+            table += "<tr><td><a href=\"edit.html?" + list[i].id + "\" class=\"table-link\">" +
+                list[i].wg.toFixed(2).replace(/\.?0+$/, "") + "&nbsp;g " +
+                list[i].desc + "</a></td><td class=\"nowrap\">" +
+                list[i].phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td><td class=\"nowrap\">" +
+                list[i].prot.toFixed(2).replace(/\.?0+$/, "") + " g</td><td>" +
+                list[i].kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
+
+            phe += list[i].phe;
+            prot += list[i].prot;
+            kcal += list[i].kcal;
+        }
     }
 
     table += "<tr><td>" +
@@ -46,11 +61,50 @@ if (localStorage.getItem("day") !== null) {
             kcaltol.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
     }
 
-    table += "</tbody><br><p>" +
-        "Reset food list under <a href=\"settings.html\">Settings</a>.</p>";
-
-    today.innerHTML = table;
-} else {
-    var empty = "<tbody><tr><td><a href=\"add.html\">Add food</a> to see it here.</td></tr></tbody>";
-    today.innerHTML = empty;
+    table += "</tbody></table>";
+    view.innerHTML = table;
 }
+
+/* Load data */
+function loadData() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            var list = [];
+            firebase.database().ref(user.uid).on("child_added", function(ulist) {
+                // TODO: No child added
+                if (ulist.val() !== null) {
+                    list.push(ulist.val());
+                    renderEntries(list);
+                    // TODO: Loop behavior
+                }
+                // else {
+                //     var empty = "<table><tbody><tr><td>No food entries.</td></tr></tbody></table>";
+                //     view.innerHTML = empty;
+                // }
+            });
+        } else {
+            if (localStorage.getItem("day") !== null) {
+                var list = JSON.parse(localStorage.getItem("day"));
+                renderEntries(list);
+            }
+            // else {
+            //     var empty = "<table><tbody><tr><td>No food entries.</td></tr></tbody></table>";
+            //     view.innerHTML = empty;
+            // }
+        }
+    });
+}
+
+/* Initialize data */
+loadData();
+
+/* Datepicker */
+$("#datepicker").datepicker({
+    onSelect: function() {
+        $(this).change();
+    }
+});
+
+$("#datepicker").change(function(){
+    loadData();
+});
