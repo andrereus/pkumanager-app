@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "704909280763",
+    "firebase_url": "https://pkumanager-89110.firebaseio.com",
+    "project_id": "pkumanager-89110",
+    "storage_bucket": "pkumanager-89110.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704909280763:android:27f296cab7066a5b",
+        "android_client_info": {
+          "package_name": "com.andrereus.pkumanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704909280763-048al65epqqh8jsr9do18uo8po7ak0om.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5jj_lex9tDXIeMpG94yYO3T5hndq2gig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
