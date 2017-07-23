@@ -15,12 +15,12 @@
         Andre Reus
     </author>
 
-    <gap:platform name="android" />
-    <gap:platform name="winphone" />
+    <gap:platform name="android"/>
+    <gap:platform name="winphone"/>
 
     <preference name="permissions" value="none"/>
 
-    <icon src="icon.png" />
+    <icon src="icon.png"/>
     <icon src="icons/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi"/>
     <icon src="icons/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi"/>
     <icon src="icons/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi"/>
@@ -30,6 +30,6 @@
 
     <access origin="*"/>
 
-    <plugin name="cordova-plugin-firebase" spec="0.1.22" />
+    <plugin name="cordova-plugin-firebase" spec="0.1.22"/>
 
 </widget>
