@@ -7,10 +7,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pkumanager/pkumanager.git"
+    "url": "git+https://github.com/pkumanager/pkumanager-app.git"
   },
   "author": "Andre Reus",
-  "bugs": "https://github.com/pkumanager/pkumanager/issues",
+  "bugs": "https://github.com/pkumanager/pkumanager-app/issues",
   "homepage": "http://pkumanager.com",
   "devDependencies": {
     "browser-sync": "^2.18.12"
