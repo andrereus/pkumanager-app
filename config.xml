@@ -3,7 +3,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.andrereus.pkumanager"
-        version   = "2.0.3">
+        version   = "2.0.4">
 
     <name>PKU Manager</name>
 
@@ -29,5 +29,17 @@
     <icon src="icons/windows.png"        gap:platform="winphone"   gap:role="background"/>
 
     <access origin="*"/>
+
+    <plugin name="cordova-plugin-buildinfo" />
+    <plugin name="cordova-universal-links-plugin" />
+    <plugin name="cordova-plugin-browsertab" />
+    <plugin name="cordova-plugin-inappbrowser" />
+
+    <universal-links>
+        <host name="https://cx35u.app.goo.gl/" scheme="https" />
+        <host name="pkumanager-89110.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback"/>
+        </host>
+    </universal-links>
 
 </widget>
