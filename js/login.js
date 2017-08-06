@@ -65,6 +65,8 @@ function initApp() {
     document.getElementById('sign-in').addEventListener('click', toggleSignIn, false);
 }
 
-window.onload = function() {
+// Phonegap specific
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
     initApp();
-};
+}
