@@ -3,7 +3,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.andrereus.pkumanager"
-        version   = "2.1.0">
+        version   = "2.1.1">
 
     <name>PKU Manager</name>
 
@@ -46,5 +46,8 @@
     <allow-intent href="*.firebaseio.com" />
     <allow-intent href="*.firebase.com" />
     <allow-intent href="*.firebaseapp.com" />
+
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
 
 </widget>
