@@ -3,7 +3,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.andrereus.pkumanager"
-        version   = "2.1.1">
+        version   = "2.1.3">
 
     <name>PKU Manager</name>
 
@@ -34,7 +34,6 @@
     <plugin name="cordova-universal-links-plugin" />
     <plugin name="cordova-plugin-browsertab" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-whitelist" />
 
     <universal-links>
         <host name="https://cx35u.app.goo.gl/" scheme="https" />
@@ -42,12 +41,5 @@
             <path url="/__/auth/callback"/>
         </host>
     </universal-links>
-
-    <allow-intent href="*.firebaseio.com" />
-    <allow-intent href="*.firebase.com" />
-    <allow-intent href="*.firebaseapp.com" />
-
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
 
 </widget>

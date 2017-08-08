@@ -65,12 +65,6 @@ function initApp() {
     document.getElementById('sign-in').addEventListener('click', toggleSignIn, false);
 }
 
-document.onreadystatechange = function() {
-    if (document.readyState === "complete") {
-        document.addEventListener("deviceready", onDeviceReady);
-    }
-};
-
-function onDeviceReady() {
+window.onload = function() {
     initApp();
-}
+};
