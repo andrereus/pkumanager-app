@@ -104,7 +104,11 @@ xmlhttp.onreadystatechange = function () {
         grab(searchFood);
     }
 };
-xmlhttp.open("GET", "data/usda.json", true);
+if (isNaN(searchId)) {
+    xmlhttp.open("GET", "data/usda.json", true);
+} else {
+    xmlhttp.open("GET", "data/nwr.json", true);
+}
 xmlhttp.send();
 
 function grab(list) {

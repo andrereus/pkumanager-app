@@ -132,8 +132,8 @@ jQuery(function() {
                         var item = loaded_data[result.ref];
 
                         // Build a snippet of HTML for this result
-                        table += '<tr><td>' +
-                            item.desc + '</td><td class="nowrap">' +
+                        table += '<tr><td><a href="add.html?' + item.desc + '" class="table-link">' +
+                            item.desc + '</a></td><td class="nowrap">' +
                             (item.phe).replace(/\.?0+$/, "") + ' mg</td></tr>';
                     });
 
