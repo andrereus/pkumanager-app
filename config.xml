@@ -16,7 +16,6 @@
     </author>
 
     <gap:platform name="android"/>
-    <gap:platform name="winphone"/>
 
     <preference name="permissions" value="none"/>
 
@@ -25,8 +24,6 @@
     <icon src="icons/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi"/>
     <icon src="icons/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi"/>
     <icon src="icons/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi"/>
-    <icon src="icons/windows.png"        gap:platform="winphone"/>
-    <icon src="icons/windows.png"        gap:platform="winphone"   gap:role="background"/>
 
     <access origin="*"/>
 
