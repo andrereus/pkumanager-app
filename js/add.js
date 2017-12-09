@@ -94,7 +94,7 @@ function estimate() {
 }
 
 /* Grab */
-var searchId = location.search.replace("?", "");
+var searchId = decodeURI(location.search.replace("?", ""));
 var xmlhttp = new XMLHttpRequest();
 var grab;
 
