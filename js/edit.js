@@ -1,5 +1,3 @@
-//TODO: DRY Firebase
-
 /* Initialize */
 var description = document.getElementById("name");
 var weight = document.getElementById("weight");
@@ -34,42 +32,20 @@ var save;
 addListener(edit, "click", save);
 
 function save() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            firebase.database().ref(user.uid).once("value").then(function(snapshot) {
-                var list = snapshot.val();
+    var list = JSON.parse(localStorage.getItem("day"));
 
-                for (var key in list) {
-                    if (list[key].id == searchId) {
-                        list[key].desc = description.value;
-                        list[key].wg = Number(weight.value);
-                        list[key].phe = Number(phenylalanine.value);
-                        list[key].prot = Number(protein.value);
-                        list[key].kcal = Number(energy.value);
-                    }
-                }
-
-                firebase.database().ref(user.uid).update(list, function(error){
-                    window.location.assign("index.html");
-                });
-            });
-        } else {
-            var list = JSON.parse(localStorage.getItem("day"));
-
-            for (var i = 0; i < list.length; i++) {
-                if (list[i].id == searchId) {
-                    list[i].desc = description.value;
-                    list[i].wg = Number(weight.value);
-                    list[i].phe = Number(phenylalanine.value);
-                    list[i].prot = Number(protein.value);
-                    list[i].kcal = Number(energy.value);
-                }
-            }
-
-            localStorage.setItem("day", JSON.stringify(list));
-            window.location.assign("index.html");
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].id == searchId) {
+            list[i].desc = description.value;
+            list[i].wg = Number(weight.value);
+            list[i].phe = Number(phenylalanine.value);
+            list[i].prot = Number(protein.value);
+            list[i].kcal = Number(energy.value);
         }
-    });
+    }
+
+    localStorage.setItem("day", JSON.stringify(list));
+    window.location.assign("index.html");
 }
 
 /* Delete */
@@ -77,37 +53,21 @@ var remove, dropId
 addListener(drop, "click", remove);
 
 function remove() {
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            firebase.database().ref(user.uid).once("value").then(function(snapshot) {
-                var list = snapshot.val();
+    var list = JSON.parse(localStorage.getItem("day"));
 
-                for (var key in list) {
-                    if (list[key].id == searchId) {
-                        firebase.database().ref(user.uid).child(key).remove().then(function(error){
-                            window.location.assign("index.html");
-                        });
-                    }
-                }
-            });
-        } else {
-            var list = JSON.parse(localStorage.getItem("day"));
-
-            for (var i = 0; i < list.length; i++) {
-                if (list[i].id == searchId) {
-                    dropId = i;
-                }
-            }
-
-            if (list.length > 1) {
-                list.splice(dropId, 1);
-                localStorage.setItem("day", JSON.stringify(list));
-            } else {
-                localStorage.removeItem("day");
-            }
-            window.location.assign("index.html");
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].id == searchId) {
+            dropId = i;
         }
-    });
+    }
+
+    if (list.length > 1) {
+        list.splice(dropId, 1);
+        localStorage.setItem("day", JSON.stringify(list));
+    } else {
+        localStorage.removeItem("day");
+    }
+    window.location.assign("index.html");
 }
 
 /* Calculate */
@@ -150,32 +110,14 @@ function estimate() {
 }
 
 /* Grab */
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        firebase.database().ref(user.uid).once("value").then(function(snapshot) {
-            var list = snapshot.val();
+var list = JSON.parse(localStorage.getItem("day"));
 
-            for (var key in list) {
-                if (list[key].id == searchId) {
-                    description.value = list[key].desc;
-                    weight.value = list[key].wg.toFixed(2).replace(/\.?0+$/, "");
-                    phenylalanine.value = list[key].phe.toFixed(2).replace(/\.?0+$/, "");
-                    protein.value = list[key].prot.toFixed(2).replace(/\.?0+$/, "");
-                    energy.value = list[key].kcal.toFixed(2).replace(/\.?0+$/, "");
-                }
-            }
-        });
-    } else {
-        var list = JSON.parse(localStorage.getItem("day"));
-
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].id == searchId) {
-                description.value = list[i].desc;
-                weight.value = list[i].wg.toFixed(2).replace(/\.?0+$/, "");
-                phenylalanine.value = list[i].phe.toFixed(2).replace(/\.?0+$/, "");
-                protein.value = list[i].prot.toFixed(2).replace(/\.?0+$/, "");
-                energy.value = list[i].kcal.toFixed(2).replace(/\.?0+$/, "");
-            }
-        }
+for (var i = 0; i < list.length; i++) {
+    if (list[i].id == searchId) {
+        description.value = list[i].desc;
+        weight.value = list[i].wg.toFixed(2).replace(/\.?0+$/, "");
+        phenylalanine.value = list[i].phe.toFixed(2).replace(/\.?0+$/, "");
+        protein.value = list[i].prot.toFixed(2).replace(/\.?0+$/, "");
+        energy.value = list[i].kcal.toFixed(2).replace(/\.?0+$/, "");
     }
-});
+}

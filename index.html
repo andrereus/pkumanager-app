@@ -13,21 +13,6 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyB5sIDzR9607vh_rbcKm0mX0tClBVHMVzM",
-                authDomain: "pkumanager-89110.firebaseapp.com",
-                databaseURL: "https://pkumanager-89110.firebaseio.com",
-                projectId: "pkumanager-89110",
-                storageBucket: "pkumanager-89110.appspot.com",
-                messagingSenderId: "704909280763"
-            };
-            firebase.initializeApp(config);
-        </script>
-        <script src="js/login.js"></script>
-
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
@@ -42,17 +27,13 @@
             <div>
                 <h1 class="float-left" id="logo"><a href="index.html"><img src="img/logo.png" alt="PKU Manager"></a></h1>
                 <div id="login" class="float-right">
-                    <div id="storage">
-                        <span class="fa fa-database"></span> Local storage <span class="fa fa-caret-down"></span>
-                    </div>
+                    <div id="storage">Menu <span class="fa fa-caret-down"></span></div>
                     <div id="dropdown" class="hidden">
                         <a href="index.html"><span class="fa fa-home"></span> Home</a>
-                        <a href="#" class="disabled" id="sign-in"><span class="fa fa-sign-in"></span> Sign in with Google</a>
                         <a href="settings.html"><span class="fa fa-cog"></span> Settings</a>
                         <a href="help.html"><span class="fa fa-question-circle"></span> Help</a>
                         <a href="about.html"><span class="fa fa-info-circle"></span> About</a>
                         <a href="old/index.html"><span class="fa fa-history"></span> Old version</a>
-                        <div class="info">"Sign in" is currently not working in app.</div>
                     </div>
                 </div>
             </div>

@@ -31,56 +31,27 @@ function save() {
     var day, id;
     var stamp = new Date();
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            firebase.database().ref(user.uid).once("value").then(function(snapshot) {
-                if (snapshot.val() !== null) {
-                    day = snapshot.val();
-                    for (var key in day) {
-                        id = day[key].id + 1;
-                    }
-                } else {
-                    id = 1;
-                }
+    if (localStorage.getItem("day") !== null) {
+        day = JSON.parse(localStorage.getItem("day"));
+        id = day[day.length - 1].id + 1;
+    } else {
+        day = [];
+        id = 1;
+    }
 
-                var food = {
-                    "id": id,
-                    "date": stamp.getTime(),
-                    "desc": description.value,
-                    "wg": Number(weight.value),
-                    "phe": Number(phenylalanine.value),
-                    "prot": Number(protein.value),
-                    "kcal": Number(energy.value)
-                };
+    var food = {
+        "id": id,
+        "date": stamp.getTime(),
+        "desc": description.value,
+        "wg": Number(weight.value),
+        "phe": Number(phenylalanine.value),
+        "prot": Number(protein.value),
+        "kcal": Number(energy.value)
+    };
 
-                firebase.database().ref(user.uid).push(food, function(error){
-                    window.location.assign("index.html");
-                });
-            });
-        } else {
-            if (localStorage.getItem("day") !== null) {
-                day = JSON.parse(localStorage.getItem("day"));
-                id = day[day.length - 1].id + 1;
-            } else {
-                day = [];
-                id = 1;
-            }
-
-            var food = {
-                "id": id,
-                "date": stamp.getTime(),
-                "desc": description.value,
-                "wg": Number(weight.value),
-                "phe": Number(phenylalanine.value),
-                "prot": Number(protein.value),
-                "kcal": Number(energy.value)
-            };
-
-            day.push(food);
-            localStorage.setItem("day", JSON.stringify(day));
-            window.location.assign("index.html");
-        }
-    });
+    day.push(food);
+    localStorage.setItem("day", JSON.stringify(day));
+    window.location.assign("index.html");
 }
 
 /* Calculate */
