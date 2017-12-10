@@ -17,11 +17,16 @@ function renderEntries(list) {
     var prot = 0;
     var kcal = 0;
 
-    var table = "<table><thead><tr><th>" +
-        "Description</th><th>" +
-        "Phenyl&shy;alanine</th><th>" +
-        "Protein</th><th>" +
-        "Energy</th></tr></thead><tbody>";
+    var table = "<table><thead><tr>" +
+        "<th>Description</th>" +
+        "<th>Phenyl&shy;alanine</th>" +
+        "<th>Protein</th>";
+
+        if (localStorage.getItem("hide") !== "true") {
+            table += '<th>Energy</th>';
+        }
+
+        table += '</tr></thead><tbody>';
 
     var pickeddate = $("#datepicker").datepicker("getDate");
 
@@ -29,12 +34,18 @@ function renderEntries(list) {
         var fooddate = new Date(list[i].date);
 
         if (fooddate.getDate() == pickeddate.getDate() && fooddate.getMonth() == pickeddate.getMonth() && fooddate.getFullYear() == pickeddate.getFullYear()) {
-            table += "<tr><td><a href=\"edit.html?" + list[i].id + "\" class=\"table-link\">" +
+            table += "<tr>" +
+                "<td><a href=\"edit.html?" + list[i].id + "\" class=\"table-link\">" +
                 list[i].wg.toFixed(2).replace(/\.?0+$/, "") + "&nbsp;g " +
-                list[i].desc + "</a></td><td class=\"nowrap\">" +
-                list[i].phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td><td class=\"nowrap\">" +
-                list[i].prot.toFixed(2).replace(/\.?0+$/, "") + " g</td><td>" +
-                list[i].kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
+                list[i].desc + "</a></td>" +
+                "<td class=\"nowrap\">" + list[i].phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td>" +
+                "<td class=\"nowrap\">" + list[i].prot.toFixed(2).replace(/\.?0+$/, "") + " g</td>";
+
+                if (localStorage.getItem("hide") !== "true") {
+                    table += "<td>" + list[i].kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td>";
+                }
+
+                table += "</tr>";
 
             phe += list[i].phe;
             prot += list[i].prot;
@@ -42,11 +53,16 @@ function renderEntries(list) {
         }
     }
 
-    table += "<tr><td>" +
-        "Total</td><td class=\"nowrap\">" +
-        phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td><td class=\"nowrap\">" +
-        prot.toFixed(2).replace(/\.?0+$/, "") + " g</td><td>" +
-        kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
+    table += "<tr>" +
+        "<td>Total</td>" +
+        "<td class=\"nowrap\">" + phe.toFixed(2).replace(/\.?0+$/, "") + " mg</td>" +
+        "<td class=\"nowrap\">" + prot.toFixed(2).replace(/\.?0+$/, "") + " g</td>";
+
+        if (localStorage.getItem("hide") !== "true") {
+            table += "<td>" + kcal.toFixed(2).replace(/\.?0+$/, "") + " kcal</td>";
+        }
+
+        table += "</tr>";
 
     if (localStorage.getItem("tolerance") !== null) {
         var tolerance = JSON.parse(localStorage.getItem("tolerance"));
@@ -54,11 +70,16 @@ function renderEntries(list) {
         var prottol = tolerance.prottol - prot;
         var kcaltol = tolerance.kcaltol - kcal;
 
-        table += "<tr><td>" +
-            "Remaining</td><td class=\"nowrap\">" +
-            phetol.toFixed(2).replace(/\.?0+$/, "") + " mg</td><td class=\"nowrap\">" +
-            prottol.toFixed(2).replace(/\.?0+$/, "") + " g</td><td>" +
-            kcaltol.toFixed(2).replace(/\.?0+$/, "") + " kcal</td></tr>";
+        table += "<tr>" +
+            "<td>Remaining</td>" +
+            "<td class=\"nowrap\">" + phetol.toFixed(2).replace(/\.?0+$/, "") + " mg</td>" +
+            "<td class=\"nowrap\">" + prottol.toFixed(2).replace(/\.?0+$/, "") + " g</td>";
+
+            if (localStorage.getItem("hide") !== "true") {
+                table += "<td>" + kcaltol.toFixed(2).replace(/\.?0+$/, "") + " kcal</td>";
+            }
+
+            table += "</tr>";
     }
 
     table += "</tbody></table>";

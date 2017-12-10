@@ -2,6 +2,7 @@
 var phenylalanine = document.getElementById("phenylalanine");
 var protein = document.getElementById("protein");
 var energy = document.getElementById("energy");
+var hideEnergy = document.getElementById("hide-energy");
 var save = document.getElementById("save");
 var resetfood = document.getElementById("resetfood");
 var reset = document.getElementById("reset");
@@ -12,6 +13,10 @@ function addListener(element, event, funct) {
     } else if (element.attachEvent) {
         return element.attachEvent(event, funct);
     }
+}
+
+if (localStorage.getItem("hide") === "true") {
+    hideEnergy.checked = true;
 }
 
 /* Save tolerance */
@@ -26,6 +31,11 @@ function tolerance() {
     };
 
     localStorage.setItem("tolerance", JSON.stringify(need));
+    if (hideEnergy.checked) {
+        localStorage.setItem("hide", "true");
+    } else {
+        localStorage.setItem("hide", "false");
+    }
     alert("Entries are saved.");
     window.location.assign("index.html");
 }

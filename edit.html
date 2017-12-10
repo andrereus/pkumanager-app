@@ -53,10 +53,6 @@
 
     <section>
         <h1>Edit</h1>
-        <div class="float-right">
-            <input type="checkbox" id="calculate">
-            <label class="label-inline" for="calculate">Lock values to calculate</label>
-        </div>
         <form class="add-edit" autocomplete="off">
             <label for="name">Name</label>
             <input type="text" id="name">
@@ -66,8 +62,13 @@
             <input type="number" id="phenylalanine">
             <label for="protein">Protein in g</label>
             <input type="number" id="protein">
-            <label for="energy">Energy in kcal</label>
-            <input type="number" id="energy">
+            <div class="energy">
+                <label for="energy">Energy in kcal</label>
+                <input type="number" id="energy">
+            </div>
+            <input type="checkbox" id="calculate">
+            <label class="label-inline" for="calculate">Lock values to calculate</label>
+            <br><br>
             <input type="button" value="Save" id="edit">
             <input type="button" value="Delete" class="button-outline" id="delete">
         </form>

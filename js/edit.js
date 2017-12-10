@@ -121,3 +121,8 @@ for (var i = 0; i < list.length; i++) {
         energy.value = list[i].kcal.toFixed(2).replace(/\.?0+$/, "");
     }
 }
+
+/* Hide */
+if (localStorage.getItem("hide") === "true") {
+    $(".energy").addClass("visuallyhidden");
+}

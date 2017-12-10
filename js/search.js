@@ -48,22 +48,32 @@ jQuery(function () {
 
                     // Build a snippet of HTML for this result
                     var table = '<h1>Search results <a class=\"button button-clear float-right\" href=\"index.html\">Close</a></h1>' +
-                        '<table><thead><tr><th>' +
-                        'Description</th><th>' +
-                        'Phenyl&shy;alanine per 100&nbsp;g</th><th>' +
-                        'Protein per 100&nbsp;g</th><th>' +
-                        'Energy per 100&nbsp;g</th></tr></thead><tbody>';
+                        '<table><thead><tr>' +
+                        '<th>Description</th>' +
+                        '<th>Phenyl&shy;alanine per 100&nbsp;g</th>' +
+                        '<th>Protein per 100&nbsp;g</th>';
+
+                    if (localStorage.getItem("hide") !== "true") {
+                        table += '<th>Energy per 100&nbsp;g</th>';
+                    }
+
+                    table += '</tr></thead><tbody>';
 
                     // Iterate over the results
                     results.forEach(function (result) {
                         var item = loaded_data[result.ref];
 
                         // Build a snippet of HTML for this result
-                        table += '<tr><td><a href="add.html?' + item.ndbno + '" class="table-link">' +
-                            item.desc + '</a></td><td class="nowrap">' +
-                            (item.phe * 1000).toFixed(2).replace(/\.?0+$/, "") + ' mg</td><td class="nowrap">' +
-                            item.prot.toFixed(2).replace(/\.?0+$/, "") + ' g</td><td>' +
-                            item.kcal.toFixed(2).replace(/\.?0+$/, "") + ' kcal</td></tr>';
+                        table += '<tr>' +
+                            '<td><a href="add.html?' + item.ndbno + '" class="table-link">' + item.desc + '</a></td>' +
+                            '<td class="nowrap">' + (item.phe * 1000).toFixed(2).replace(/\.?0+$/, "") + ' mg</td>' +
+                            '<td class="nowrap">' + item.prot.toFixed(2).replace(/\.?0+$/, "") + ' g</td>';
+
+                        if (localStorage.getItem("hide") !== "true") {
+                            table += '<td>' + item.kcal.toFixed(2).replace(/\.?0+$/, "") + ' kcal</td>';
+                        }
+
+                        table += '</tr>';
                     });
 
                     // Build a snippet of HTML for this result
