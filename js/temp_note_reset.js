@@ -1,7 +1,7 @@
 /* Reset food list */
 var conf, dropId;
 
-document.getElementById("view").addEventListener("click", function(event) {
+document.getElementById("view").addEventListener("click", function (event) {
     if (event.target && event.target.matches("#resetfood")) {
         conf = confirm("Please confirm to reset food entries.");
 

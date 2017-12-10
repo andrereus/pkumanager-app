@@ -82,11 +82,11 @@ loadData();
 
 /* Datepicker */
 $("#datepicker").datepicker({
-    onSelect: function() {
+    onSelect: function () {
         $(this).change();
     }
 });
 
-$("#datepicker").change(function(){
+$("#datepicker").change(function () {
     loadData();
 });
