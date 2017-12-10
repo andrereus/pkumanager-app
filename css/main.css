@@ -781,6 +781,48 @@ th, td {
     text-align: center;
 }
 
+.loading {
+    margin-bottom: 10px;
+}
+
+.loading > p {
+    margin-bottom: 10px;
+}
+
+.loading-border {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 10px;
+    width: 100%;
+    background: #eee;
+    margin-bottom: 10px;
+}
+
+.lb-1 {
+    margin-bottom: 2px;
+}
+
+.loading-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    float: left;
+    height: 10px;
+    max-width: 100%;
+    background: #9b4dca;
+    z-index: 2;
+}
+
+.lc-2 {
+    background: #d4b8e5;
+}
+
+.lc-3 {
+    background: #ccc;
+}
+
 /* Smaller than mobile */
 @media (max-width: 400px) {}
 
