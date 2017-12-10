@@ -85,23 +85,25 @@ function renderEntries(list) {
     table += "</tbody></table>";
 
     // Ladebalken
-    var loadphe = phe * 100 / tolerance.phetol;
-    table += "<div class=\"loading\"><p>Phenylalanine / Protein</p>" +
-        "<div class=\"loading-border lb-1\">" +
-        "<div class=\"loading-color\" style=\"width: " + loadphe + "%\"></div>" +
-        "</div>";
+    if (localStorage.getItem("tolerance") !== null) {
+        var loadphe = phe * 100 / tolerance.phetol;
+        table += "<div class=\"loading\"><p>Phenylalanine / Protein</p>" +
+            "<div class=\"loading-border lb-1\">" +
+            "<div class=\"loading-color\" style=\"width: " + loadphe + "%\"></div>" +
+            "</div>";
 
-    var loadprot = prot * 100 / tolerance.prottol;
-    table += "<div class=\"loading-border\">" +
-        "<div class=\"loading-color lc-2\" style=\"width: " + loadprot + "%\"></div>" +
-        "</div></div>";
-
-    if (localStorage.getItem("hide") !== "true") {
-        var loadkcal = kcal * 100 / tolerance.kcaltol;
-        table += "<div class=\"loading\"><p class=\"loading-title\">Energy</p>" +
-            "<div class=\"loading-border\">" +
-            "<div class=\"loading-color lc-3\" style=\"width: " + loadkcal + "%\"></div>" +
+        var loadprot = prot * 100 / tolerance.prottol;
+        table += "<div class=\"loading-border\">" +
+            "<div class=\"loading-color lc-2\" style=\"width: " + loadprot + "%\"></div>" +
             "</div></div>";
+
+        if (localStorage.getItem("hide") !== "true") {
+            var loadkcal = kcal * 100 / tolerance.kcaltol;
+            table += "<div class=\"loading\"><p class=\"loading-title\">Energy</p>" +
+                "<div class=\"loading-border\">" +
+                "<div class=\"loading-color lc-3\" style=\"width: " + loadkcal + "%\"></div>" +
+                "</div></div>";
+        }
     }
 
     view.innerHTML = table;
