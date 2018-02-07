@@ -139,8 +139,8 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-    background-color: #9b4dca;
-    border: 0.1rem solid #9b4dca;
+    background-color: #4b7bec;
+    border: 0.1rem solid #4b7bec;
     border-radius: 0.4rem;
     box-sizing: border-box;
     color: #ffffff;
@@ -166,8 +166,8 @@ input[type='reset']:hover,
 input[type='reset']:focus,
 input[type='submit']:hover,
 input[type='submit']:focus {
-    background-color: #606c76;
-    border-color: #606c76;
+    background-color: #3867d6;
+    border-color: #3867d6;
     color: #ffffff;
     outline: 0;
 }
@@ -176,7 +176,7 @@ button.button-outline,
 input[type='button'].button-outline,
 input[type='reset'].button-outline,
 input[type='submit'].button-outline {
-    color: #9b4dca;
+    color: #4b7bec;
     background-color: transparent;
 }
 .button.button-outline:hover, .button.button-outline:focus,
@@ -188,16 +188,16 @@ input[type='reset'].button-outline:hover,
 input[type='reset'].button-outline:focus,
 input[type='submit'].button-outline:hover,
 input[type='submit'].button-outline:focus {
-    color: #606c76;
+    color: #3867d6;
     background-color: transparent;
-    border-color: #606c76;
+    border-color: #3867d6;
 }
 .button.button-clear,
 button.button-clear,
 input[type='button'].button-clear,
 input[type='reset'].button-clear,
 input[type='submit'].button-clear {
-    color: #9b4dca;
+    color: #4b7bec;
     background-color: transparent;
     border-color: transparent;
 }
@@ -210,14 +210,14 @@ input[type='reset'].button-clear:hover,
 input[type='reset'].button-clear:focus,
 input[type='submit'].button-clear:hover,
 input[type='submit'].button-clear:focus {
-    color: #606c76;
+    color: #3867d6;
     background-color: transparent;
     border-color: transparent;
 }
 
 pre {
     background: #f4f5f6;
-    border-left: 0.3rem solid #9b4dca;
+    border-left: 0.3rem solid #4b7bec;
     font-family: Menlo, Consolas, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, monospace;
 }
 
@@ -268,7 +268,7 @@ input[type='text']:focus,
 input[type='url']:focus,
 textarea:focus,
 select:focus {
-    border: 0.1rem solid #9b4dca;
+    border: 0.1rem solid #4b7bec;
     outline: 0;
 }
 
@@ -441,11 +441,11 @@ input[type='radio'] {
     }
 }
 a {
-    color: #9b4dca;
+    color: #4b7bec;
     text-decoration: none;
 }
 a:hover {
-    color: #606c76;
+    color: #3867d6;
 }
 
 dl,
@@ -674,7 +674,7 @@ nav > a:active {
 
 .active-link {
     padding-bottom: 15px;
-    border-bottom: 2px solid #9b4dca;
+    border-bottom: 2px solid #4b7bec;
 }
 
 th, td {
@@ -726,7 +726,8 @@ th, td {
 }
 
 #search {
-    background-image: url("../img/food.jpg");
+    background: #f7f9fa;
+    border-bottom: 1px solid #e1e1e1;
     padding-top: 10px;
     margin-bottom: 15px;
 }
@@ -811,12 +812,12 @@ th, td {
     float: left;
     height: 10px;
     max-width: 100%;
-    background: #9b4dca;
+    background: #4b7bec;
     z-index: 2;
 }
 
 .lc-2 {
-    background: #d4b8e5;
+    background: #9db5ed;
 }
 
 .lc-3 {
