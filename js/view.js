@@ -7,8 +7,19 @@ var nav = "<input type=\"text\" class=\"float-left\" id=\"datepicker\">" +
     "<a class=\"button float-right\" href=\"add.html\">Add</a>";
 
 entry.innerHTML = nav;
-$("#datepicker").datepicker();
-$("#datepicker").datepicker("option", "dateFormat", "dd.mm.yy");
+$("#datepicker").datepicker({
+    showOn: "button",
+    buttonImage: "../img/calendar.png",
+    buttonImageOnly: true,
+    buttonText: "Select date",
+    onClose: function() {
+        $(this).attr("readonly", false);
+    },
+    beforeShow: function() {
+        $(this).attr("readonly", true);
+    },
+    dateFormat: "dd.mm.yy"
+  });
 $("#datepicker").datepicker("setDate", new Date());
 
 /* Food list */
