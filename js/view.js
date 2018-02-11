@@ -9,7 +9,7 @@ var nav = "<input type=\"text\" class=\"float-left\" id=\"datepicker\">" +
 entry.innerHTML = nav;
 $("#datepicker").datepicker({
     showOn: "button",
-    buttonImage: "../img/calendar.png",
+    buttonImage: "img/calendar.png",
     buttonImageOnly: true,
     buttonText: "Select date",
     onClose: function() {
