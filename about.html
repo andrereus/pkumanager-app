@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="icons/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="icons/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
@@ -32,20 +33,14 @@
                 </a>
             </h1>
             <div id="login" class="float-right">
-                <div id="storage">Menu
-                    <span class="fa fa-caret-down"></span>
-                </div>
+                <div id="storage">Menu <i class="fas fa-angle-down"></i></div>
                 <div id="dropdown" class="hidden">
-                    <a href="index.html">
-                        <span class="fa fa-home"></span> Home</a>
-                    <a href="settings.html">
-                        <span class="fa fa-cog"></span> Settings</a>
-                    <a href="help.html">
-                        <span class="fa fa-question-circle"></span> Help</a>
-                    <a href="about.html">
-                        <span class="fa fa-info-circle"></span> About</a>
-                    <a href="old/index.html">
-                        <span class="fa fa-history"></span> Old version</a>
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="#" class="disabled" id="sign-in"><i class="fas fa-sign-in-alt"></i> Sign in with Google</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="old/index.html"><i class="fas fa-history"></i> Old version</a>
                 </div>
             </div>
         </div>
@@ -56,17 +51,17 @@
         <ol>
             <li>
                 <a href="index.html">
-                    <span class="fa fa-search"></span>
+                    <i class="fas fa-search"></i>
                     <span class="bold">Search</span>
                 </a> for food.</li>
             <li>Calculate and
                 <a href="add.html">
-                    <span class="fa fa-plus"></span>
+                    <i class="fas fa-plus"></i>
                     <span class="bold">Add</span>
                 </a> food to a list.</li>
             <li>
                 <a href="index.html">
-                    <span class="fa fa-book"></span>
+                    <i class="fas fa-book"></i>
                     <span class="bold">View</span>
                 </a> and edit food in the list.</li>
         </ol>
@@ -104,6 +99,16 @@
             <p>Activate JavaScript to see e-mail.</p>
         </noscript>
     </section>
+
+    <footer>
+        <div>
+            <a href="settings.html" class="app-settings"><i class="fas fa-cog"></i> Settings</a><div class="info-links">
+            <div class="info-links">
+                <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>

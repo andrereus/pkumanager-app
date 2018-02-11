@@ -640,6 +640,33 @@ header > div {
     padding: 10px 5px;
 }
 
+/* Sticky footer */
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #e1e1e1;
+    background: #f7f9fa;
+}
+
+footer > div {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px 5px;
+}
+
 .site {
     margin-bottom: 15px;
 }
@@ -706,6 +733,15 @@ th, td {
 
 #instruction-text {
     text-align: center;
+}
+
+#no-data {
+    text-align: center;
+    color: #eee;
+}
+
+#no-data svg {
+    margin: 10px;
 }
 
 #instruction {
@@ -822,6 +858,30 @@ th, td {
 
 .lc-3 {
     background: #ccc;
+}
+
+.download-android {
+    text-decoration: none;
+}
+
+.download-android > img {
+    max-width: 100px;
+}
+
+.app-settings {
+    display: block;
+    float: left;
+    padding: 5px;
+}
+
+.info-links {
+    float: right;
+}
+
+.info-links > a {
+    display: block;
+    float: left;
+    padding: 5px;
 }
 
 /* Smaller than mobile */
