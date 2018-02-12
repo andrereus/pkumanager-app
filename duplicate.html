@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>PKU Manager | Add</title>
+    <meta name="description" content="PKU Manager | Add">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script defer src="icons\fontawesome\js\fontawesome-all.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB5sIDzR9607vh_rbcKm0mX0tClBVHMVzM",
+            authDomain: "pkumanager-89110.firebaseapp.com",
+            databaseURL: "https://pkumanager-89110.firebaseio.com",
+            projectId: "pkumanager-89110",
+            storageBucket: "pkumanager-89110.appspot.com",
+            messagingSenderId: "704909280763"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/login.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113927091-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-113927091-1');
+    </script>
+
+    <!-- Hotjar Tracking Code for pkumanager.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:718334,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <header class="site">
+        <div>
+            <h1 class="float-left" id="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="PKU Manager">
+                </a>
+            </h1>
+            <div id="login" class="float-right">
+                <div id="storage">Menu <i class="fas fa-angle-down"></i></div>
+                <div id="dropdown" class="hidden">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="#" class="disabled" id="sign-in"><i class="fas fa-sign-in-alt"></i> Sign in with Google</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                    <a href="old/index.html"><i class="fas fa-history"></i> Old version</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h1>Add</h1>
+        <form class="add-edit" autocomplete="off">
+            <label for="name">Name</label>
+            <input type="text" id="name">
+            <label for="weight">Weight in g</label>
+            <input type="number" id="weight">
+            <label for="phenylalanine">Phenylalanine in mg</label>
+            <input type="number" id="phenylalanine">
+            <label for="protein">Protein in g</label>
+            <input type="number" id="protein">
+            <div class="energy">
+                <label for="energy">Energy in kcal</label>
+                <input type="number" id="energy">
+            </div>
+            <input type="checkbox" id="calculate">
+            <label class="label-inline" for="calculate">Lock values to calculate</label>
+            <br><br>
+            <input type="button" value="Save" id="add">
+            <input type="reset" value="Clear" class="button-outline">
+        </form>
+    </section>
+
+    <footer>
+        <div>
+            <a href="https://play.google.com/store/apps/details?id=com.andrereus.pkumanager&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" class="download-android"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"></a>
+            <div class="info-links">
+                <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+
+    <script src="js/main.js"></script>
+    <script src="js/duplicate.js"></script>
+</body>
+
+</html>

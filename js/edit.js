@@ -1,3 +1,5 @@
+//TODO: DRY Firebase
+
 /* Initialize */
 var description = document.getElementById("name");
 var weight = document.getElementById("weight");

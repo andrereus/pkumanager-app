@@ -4,7 +4,7 @@ var view = document.getElementById("view");
 
 /* Food navigation */
 var nav = "<input type=\"text\" class=\"float-left\" id=\"datepicker\">" +
-    "<a class=\"button float-right\" href=\"add.html\">Add</a>";
+    "<button class=\"button float-right\" id=\"opener\">Add</button>";
 
 entry.innerHTML = nav;
 $("#datepicker").datepicker({
@@ -40,6 +40,7 @@ function renderEntries(list) {
         table += '</tr></thead><tbody>';
 
     var pickeddate = $("#datepicker").datepicker("getDate");
+    var adder = "<div id=\"dialog\" title=\"Last used\"><ul>";
 
     for (var i = 0; i < list.length; i++) {
         var fooddate = new Date(list[i].date);
@@ -62,6 +63,13 @@ function renderEntries(list) {
             prot += list[i].prot;
             kcal += list[i].kcal;
         }
+    }
+
+    var reverseList = list.reverse().slice(0,30);
+    for (var i = 0; i < reverseList.length; i++) {
+        adder += "<li><a href=\"duplicate.html?" + reverseList[i].id + "\" class=\"modal-link\">" +
+        reverseList[i].wg.toFixed(2).replace(/\.?0+$/, "") + "&nbsp;g " +
+        reverseList[i].desc + "</a></li>";
     }
 
     table += "<tr>" +
@@ -94,6 +102,7 @@ function renderEntries(list) {
     }
 
     table += "</tbody></table>";
+    adder += "</ul></div>";
 
     // Ladebalken
     if (localStorage.getItem("tolerance") !== null) {
@@ -117,6 +126,7 @@ function renderEntries(list) {
         }
     }
 
+    table += adder;
     view.innerHTML = table;
 }
 
@@ -144,4 +154,21 @@ $("#datepicker").datepicker({
 
 $("#datepicker").change(function () {
     loadData();
+});
+
+/* Dialog */
+$(function() {
+    $("#dialog").dialog({
+        autoOpen: false,
+        buttons: {
+            "New": function() {
+                window.location.href = "add.html";
+            }
+        },
+        maxHeight: 450
+    });
+
+    $("#opener").on("click", function() {
+        $("#dialog").dialog("open");
+    });
 });

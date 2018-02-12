@@ -888,6 +888,35 @@ th, td {
     cursor: pointer;
 }
 
+#dialog {
+    display: none;
+}
+
+#dialog p {
+    margin: 5px 0 0;
+}
+
+#dialog ul {
+    list-style-type: none;
+    margin: 5px 0 0;
+}
+
+#dialog li {
+    margin-bottom: 0;
+}
+
+.modal-link {
+    display: block;
+    width: 100%;
+    outline: none;
+    color: #4b7bec !important;
+    padding: 5px 0;
+}
+
+.modal-link:hover {
+    color: #3867d6 !important;
+}
+
 /* Smaller than mobile */
 @media (max-width: 400px) {}
 
