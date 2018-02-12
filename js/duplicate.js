@@ -34,56 +34,27 @@ function save() {
     var day, id;
     var stamp = new Date();
 
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            firebase.database().ref(user.uid).once("value").then(function (snapshot) {
-                if (snapshot.val() !== null) {
-                    day = snapshot.val();
-                    for (var key in day) {
-                        id = day[key].id + 1;
-                    }
-                } else {
-                    id = 1;
-                }
+    if (localStorage.getItem("day") !== null) {
+        day = JSON.parse(localStorage.getItem("day"));
+        id = day[day.length - 1].id + 1;
+    } else {
+        day = [];
+        id = 1;
+    }
 
-                var food = {
-                    "id": id,
-                    "date": stamp.getTime(),
-                    "desc": description.value,
-                    "wg": Number(weight.value),
-                    "phe": Number(phenylalanine.value),
-                    "prot": Number(protein.value),
-                    "kcal": Number(energy.value)
-                };
+    var food = {
+        "id": id,
+        "date": stamp.getTime(),
+        "desc": description.value,
+        "wg": Number(weight.value),
+        "phe": Number(phenylalanine.value),
+        "prot": Number(protein.value),
+        "kcal": Number(energy.value)
+    };
 
-                firebase.database().ref(user.uid).push(food, function (error) {
-                    window.location.assign("index.html");
-                });
-            });
-        } else {
-            if (localStorage.getItem("day") !== null) {
-                day = JSON.parse(localStorage.getItem("day"));
-                id = day[day.length - 1].id + 1;
-            } else {
-                day = [];
-                id = 1;
-            }
-
-            var food = {
-                "id": id,
-                "date": stamp.getTime(),
-                "desc": description.value,
-                "wg": Number(weight.value),
-                "phe": Number(phenylalanine.value),
-                "prot": Number(protein.value),
-                "kcal": Number(energy.value)
-            };
-
-            day.push(food);
-            localStorage.setItem("day", JSON.stringify(day));
-            window.location.assign("index.html");
-        }
-    });
+    day.push(food);
+    localStorage.setItem("day", JSON.stringify(day));
+    window.location.assign("index.html");
 }
 
 /* Calculate */
@@ -126,35 +97,17 @@ function estimate() {
 }
 
 /* Grab */
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        firebase.database().ref(user.uid).once("value").then(function (snapshot) {
-            var list = snapshot.val();
+var list = JSON.parse(localStorage.getItem("day"));
 
-            for (var key in list) {
-                if (list[key].id == searchId) {
-                    description.value = list[key].desc;
-                    weight.value = list[key].wg.toFixed(2).replace(/\.?0+$/, "");
-                    phenylalanine.value = list[key].phe.toFixed(2).replace(/\.?0+$/, "");
-                    protein.value = list[key].prot.toFixed(2).replace(/\.?0+$/, "");
-                    energy.value = list[key].kcal.toFixed(2).replace(/\.?0+$/, "");
-                }
-            }
-        });
-    } else {
-        var list = JSON.parse(localStorage.getItem("day"));
-
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].id == searchId) {
-                description.value = list[i].desc;
-                weight.value = list[i].wg.toFixed(2).replace(/\.?0+$/, "");
-                phenylalanine.value = list[i].phe.toFixed(2).replace(/\.?0+$/, "");
-                protein.value = list[i].prot.toFixed(2).replace(/\.?0+$/, "");
-                energy.value = list[i].kcal.toFixed(2).replace(/\.?0+$/, "");
-            }
-        }
+for (var i = 0; i < list.length; i++) {
+    if (list[i].id == searchId) {
+        description.value = list[i].desc;
+        weight.value = list[i].wg.toFixed(2).replace(/\.?0+$/, "");
+        phenylalanine.value = list[i].phe.toFixed(2).replace(/\.?0+$/, "");
+        protein.value = list[i].prot.toFixed(2).replace(/\.?0+$/, "");
+        energy.value = list[i].kcal.toFixed(2).replace(/\.?0+$/, "");
     }
-});
+}
 
 /* Hide */
 if (localStorage.getItem("hide") === "true") {

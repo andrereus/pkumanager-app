@@ -13,43 +13,6 @@
     <link rel="stylesheet" href="css/main.css">
 
     <script defer src="icons\fontawesome\js\fontawesome-all.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyB5sIDzR9607vh_rbcKm0mX0tClBVHMVzM",
-            authDomain: "pkumanager-89110.firebaseapp.com",
-            databaseURL: "https://pkumanager-89110.firebaseio.com",
-            projectId: "pkumanager-89110",
-            storageBucket: "pkumanager-89110.appspot.com",
-            messagingSenderId: "704909280763"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="js/login.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113927091-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-113927091-1');
-    </script>
-
-    <!-- Hotjar Tracking Code for pkumanager.com -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:718334,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-
     <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
@@ -72,7 +35,6 @@
                 <div id="storage">Menu <i class="fas fa-angle-down"></i></div>
                 <div id="dropdown" class="hidden">
                     <a href="index.html"><i class="fas fa-home"></i> Home</a>
-                    <a href="#" class="disabled" id="sign-in"><i class="fas fa-sign-in-alt"></i> Sign in with Google</a>
                     <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
                     <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
                     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
@@ -107,7 +69,7 @@
 
     <footer>
         <div>
-            <a href="https://play.google.com/store/apps/details?id=com.andrereus.pkumanager&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" class="download-android"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"></a>
+            <a href="settings.html" class="app-settings"><i class="fas fa-cog"></i> Settings</a><div class="info-links">
             <div class="info-links">
                 <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
                 <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
