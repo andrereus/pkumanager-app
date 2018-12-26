@@ -12,6 +12,8 @@
   "author": "Andre Reus",
   "bugs": "https://github.com/pkumanager/pkumanager-app/issues",
   "homepage": "http://pkumanager.com",
+  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
     "browser-sync": "^2.18.12"
   }
