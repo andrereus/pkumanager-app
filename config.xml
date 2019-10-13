@@ -3,7 +3,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.andrereus.pkumanager"
-        version   = "3.2.2">
+        version   = "3.2.3">
 
     <name>PKU Manager</name>
 
@@ -11,7 +11,7 @@
         PKU Manager - As easy as 123.
     </description>
 
-    <author href="http://pkumanager.com" email="pherechner@gmail.com">
+    <author href="http://pkumanager.com" email="heypku@gmail.com">
         Andre Reus
     </author>
 
