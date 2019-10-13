@@ -17,6 +17,7 @@
 
     <gap:platform name="android"/>
 
+    <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="permissions" value="none"/>
 
     <icon src="icon.png"/>
