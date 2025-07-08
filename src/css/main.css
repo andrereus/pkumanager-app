@@ -103,7 +103,6 @@ Author's custom styles
 * Licensed under the MIT license
 */
 
-
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -136,9 +135,9 @@ blockquote *:last-child {
 
 .button,
 button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
     background-color: #4b7bec;
     border: 0.1rem solid #4b7bec;
     border-radius: 0.4rem;
@@ -157,15 +156,16 @@ input[type='submit'] {
     text-transform: uppercase;
     white-space: nowrap;
 }
-.button:hover, .button:focus,
+.button:hover,
+.button:focus,
 button:hover,
 button:focus,
-input[type='button']:hover,
-input[type='button']:focus,
-input[type='reset']:hover,
-input[type='reset']:focus,
-input[type='submit']:hover,
-input[type='submit']:focus {
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
     background-color: #3867d6;
     border-color: #3867d6;
     color: #ffffff;
@@ -173,43 +173,45 @@ input[type='submit']:focus {
 }
 .button.button-outline,
 button.button-outline,
-input[type='button'].button-outline,
-input[type='reset'].button-outline,
-input[type='submit'].button-outline {
+input[type="button"].button-outline,
+input[type="reset"].button-outline,
+input[type="submit"].button-outline {
     color: #4b7bec;
     background-color: transparent;
 }
-.button.button-outline:hover, .button.button-outline:focus,
+.button.button-outline:hover,
+.button.button-outline:focus,
 button.button-outline:hover,
 button.button-outline:focus,
-input[type='button'].button-outline:hover,
-input[type='button'].button-outline:focus,
-input[type='reset'].button-outline:hover,
-input[type='reset'].button-outline:focus,
-input[type='submit'].button-outline:hover,
-input[type='submit'].button-outline:focus {
+input[type="button"].button-outline:hover,
+input[type="button"].button-outline:focus,
+input[type="reset"].button-outline:hover,
+input[type="reset"].button-outline:focus,
+input[type="submit"].button-outline:hover,
+input[type="submit"].button-outline:focus {
     color: #3867d6;
     background-color: transparent;
     border-color: #3867d6;
 }
 .button.button-clear,
 button.button-clear,
-input[type='button'].button-clear,
-input[type='reset'].button-clear,
-input[type='submit'].button-clear {
+input[type="button"].button-clear,
+input[type="reset"].button-clear,
+input[type="submit"].button-clear {
     color: #4b7bec;
     background-color: transparent;
     border-color: transparent;
 }
-.button.button-clear:hover, .button.button-clear:focus,
+.button.button-clear:hover,
+.button.button-clear:focus,
 button.button-clear:hover,
 button.button-clear:focus,
-input[type='button'].button-clear:hover,
-input[type='button'].button-clear:focus,
-input[type='reset'].button-clear:hover,
-input[type='reset'].button-clear:focus,
-input[type='submit'].button-clear:hover,
-input[type='submit'].button-clear:focus {
+input[type="button"].button-clear:hover,
+input[type="button"].button-clear:focus,
+input[type="reset"].button-clear:hover,
+input[type="reset"].button-clear:focus,
+input[type="submit"].button-clear:hover,
+input[type="submit"].button-clear:focus {
     color: #3867d6;
     background-color: transparent;
     border-color: transparent;
@@ -218,7 +220,8 @@ input[type='submit'].button-clear:focus {
 pre {
     background: #f4f5f6;
     border-left: 0.3rem solid #4b7bec;
-    font-family: Menlo, Consolas, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, monospace;
+    font-family: Menlo, Consolas, "Bitstream Vera Sans Mono", "DejaVu Sans Mono",
+        Monaco, monospace;
 }
 
 code {
@@ -238,13 +241,13 @@ pre > code {
     white-space: pre;
 }
 
-input[type='email'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='url'],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
 textarea,
 select {
     -webkit-appearance: none;
@@ -259,13 +262,13 @@ select {
     padding: 0.6rem 1rem;
     width: 100%;
 }
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='password']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='text']:focus,
-input[type='url']:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
 textarea:focus,
 select:focus {
     border: 0.1rem solid #4b7bec;
@@ -291,8 +294,8 @@ fieldset {
     padding: 0;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+input[type="checkbox"],
+input[type="radio"] {
     display: inline;
 }
 
@@ -366,13 +369,15 @@ input[type='radio'] {
 .row .column.column-offset-25 {
     margin-left: 25%;
 }
-.row .column.column-offset-33, .row .column.column-offset-34 {
+.row .column.column-offset-33,
+.row .column.column-offset-34 {
     margin-left: 33.3333%;
 }
 .row .column.column-offset-50 {
     margin-left: 50%;
 }
-.row .column.column-offset-66, .row .column.column-offset-67 {
+.row .column.column-offset-66,
+.row .column.column-offset-67 {
     margin-left: 66.6666%;
 }
 .row .column.column-offset-75 {
@@ -396,7 +401,8 @@ input[type='radio'] {
     flex: 0 0 25%;
     max-width: 25%;
 }
-.row .column.column-33, .row .column.column-34 {
+.row .column.column-33,
+.row .column.column-34 {
     flex: 0 0 33.3333%;
     max-width: 33.3333%;
 }
@@ -412,7 +418,8 @@ input[type='radio'] {
     flex: 0 0 60%;
     max-width: 60%;
 }
-.row .column.column-66, .row .column.column-67 {
+.row .column.column-66,
+.row .column.column-67 {
     flex: 0 0 66.6666%;
     max-width: 66.6666%;
 }
@@ -433,7 +440,7 @@ input[type='radio'] {
     .row {
         flex-direction: row;
         margin-left: -1rem;
-        width: calc(100% + 2.0rem);
+        width: calc(100% + 2rem);
     }
     .row .column {
         margin-bottom: inherit;
@@ -619,7 +626,8 @@ h6 {
 .clearfix {
     *zoom: 1;
 }
-.clearfix:after, .clearfix:before {
+.clearfix:after,
+.clearfix:before {
     content: "";
     display: table;
 }
@@ -677,7 +685,8 @@ section {
     padding: 10px 5px;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 2.4rem;
 }
 
@@ -704,7 +713,8 @@ nav > a:active {
     border-bottom: 2px solid #4b7bec;
 }
 
-th, td {
+th,
+td {
     padding: 10px 5px;
 }
 
@@ -722,7 +732,8 @@ th, td {
     overflow: hidden;
 }
 
-.add-edit, .wide-input {
+.add-edit,
+.wide-input {
     width: 100%;
 }
 
@@ -918,10 +929,12 @@ th, td {
 }
 
 /* Smaller than mobile */
-@media (max-width: 400px) {}
+@media (max-width: 400px) {
+}
 
 /* Smaller than phablet (also point when grid becomes active) */
-@media (max-width: 550px) {}
+@media (max-width: 550px) {
+}
 
 /* Smaller than tablet */
 @media (max-width: 750px) {
@@ -931,10 +944,12 @@ th, td {
 }
 
 /* Smaller than desktop */
-@media (max-width: 1000px) {}
+@media (max-width: 1000px) {
+}
 
 /* Smaller than Desktop HD */
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+}
 
 /* ==========================================================================
 Helper classes
@@ -1021,9 +1036,9 @@ Modify as content requires.
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 1.25dppx),
+    (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 

@@ -1,20 +1,15 @@
 {
-  "name": "pkumanager",
-  "version": "2.0.0",
-  "description": "PKU Manager",
-  "scripts": {
-    "serve": "browser-sync start --server --files \"**/*\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pkumanager/pkumanager-app.git"
-  },
-  "author": "Andre Reus",
-  "bugs": "https://github.com/pkumanager/pkumanager-app/issues",
-  "homepage": "http://pkumanager.com",
-  "license": "UNLICENSED",
-  "private": true,
-  "devDependencies": {
-    "browser-sync": "^2.18.12"
-  }
+    "name": "pkumanager-app",
+    "version": "2.0.0",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@capacitor/android": "^7.4.1",
+        "@capacitor/core": "^7.4.1"
+    },
+    "devDependencies": {
+        "@capacitor/cli": "^7.4.1"
+    }
 }
