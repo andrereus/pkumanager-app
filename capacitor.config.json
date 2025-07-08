@@ -1,5 +1,10 @@
 {
     "appId": "com.andrereus.pkumanager",
     "appName": "PKU Manager",
-    "webDir": "src"
+    "webDir": "src",
+    "plugins": {
+        "EdgeToEdge": {
+            "backgroundColor": "#4b7bec"
+        }
+    }
 }
