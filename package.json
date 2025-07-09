@@ -6,7 +6,8 @@
         "add:android": "npx cap add android",
         "sync": "npx cap sync",
         "run:android": "npx cap run android",
-        "generate:assets": "npx @capacitor/assets generate --android"
+        "generate:assets": "npx @capacitor/assets generate --android",
+        "open:android": "npx cap open android"
     },
     "dependencies": {
         "@capacitor/android": "^7.4.1",
