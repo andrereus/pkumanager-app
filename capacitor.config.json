@@ -4,7 +4,7 @@
     "webDir": "src",
     "plugins": {
         "EdgeToEdge": {
-            "backgroundColor": "#4b7bec"
+            "backgroundColor": "#f7f9fa"
         }
     }
 }
