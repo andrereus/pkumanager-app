@@ -3,6 +3,7 @@
     "version": "2.0.0",
     "private": true,
     "scripts": {
+        "add:android": "npx cap add android",
         "sync": "npx cap sync",
         "run:android": "npx cap run android",
         "generate:assets": "npx @capacitor/assets generate --android"
