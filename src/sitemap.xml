@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://pkumanager.com/</loc>
+        <loc>https://pkumanager.com/</loc>
     </url>
     <url>
-        <loc>http://pkumanager.com/index.html</loc>
+        <loc>https://pkumanager.com/index.html</loc>
     </url>
     <url>
-        <loc>http://pkumanager.com/settings.html</loc>
+        <loc>https://pkumanager.com/settings.html</loc>
     </url>
     <url>
-        <loc>http://pkumanager.com/help.html</loc>
+        <loc>https://pkumanager.com/help.html</loc>
     </url>
     <url>
-        <loc>http://pkumanager.com/about.html</loc>
+        <loc>https://pkumanager.com/about.html</loc>
     </url>
 </urlset>
